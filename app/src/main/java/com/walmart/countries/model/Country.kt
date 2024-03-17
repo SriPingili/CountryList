@@ -7,14 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * data class to store the Countries response
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class CountriesResponse(
-  val countries: List<Country>
-)
-
-/**
- * data class to hold individual Country details
- */
-@JsonIgnoreProperties(ignoreUnknown = true)
 data class Country(
   @JsonProperty("capital") val capital: String,
   @JsonProperty("code") val code: String,

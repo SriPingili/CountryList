@@ -7,7 +7,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 
 object CountryUtils {
-
   private const val BASE_URL = "https://gist.githubusercontent.com/"
 
   fun getCountryListApi(): CountryListApi {

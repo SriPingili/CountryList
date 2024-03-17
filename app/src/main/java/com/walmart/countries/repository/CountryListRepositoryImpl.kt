@@ -2,10 +2,10 @@ package com.walmart.countries.repository
 
 import com.walmart.countries.api.CountryListApi
 import com.walmart.countries.model.CountriesFetchResult
-import com.walmart.countries.model.CountriesFetchResult.Empty
+import com.walmart.countries.model.CountriesFetchResult.EmptyResponse
 import com.walmart.countries.model.CountriesFetchResult.Failure
 import com.walmart.countries.model.CountriesFetchResult.Success
-import com.walmart.countries.model.CountriesResponse
+import com.walmart.countries.model.Country
 import com.walmart.countries.util.CountryUtils.getCountryListApi
 import retrofit2.HttpException
 import retrofit2.Response
@@ -17,12 +17,12 @@ class CountryListRepositoryImpl(private val api: CountryListApi = getCountryList
 
   override suspend fun getCountriesList(): CountriesFetchResult {
     return try {
-      val response: Response<CountriesResponse> = api.getCountriesList()
+      val response: Response<List<Country>> = api.getCountriesList()
 
       if (response.isSuccessful) {
-        val data: CountriesResponse = response.body() ?: return Failure.Unknown(response.message())
+        val data: List<Country> = response.body() ?: return Failure.Unknown(response.message())
 
-        if (data.countries.isNotEmpty()) Success(data) else Empty
+        if (data.isNotEmpty()) Success(data) else EmptyResponse
       } else {
         Failure.Unknown(response.message())
       }

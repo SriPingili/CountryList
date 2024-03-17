@@ -1,0 +1,48 @@
+package com.walmart.countries.viewmodel
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.walmart.countries.model.CountriesFetchResult
+import com.walmart.countries.model.CountriesFetchResult.EmptyResponse
+import com.walmart.countries.model.CountriesFetchResult.Success
+import com.walmart.countries.model.Country
+import com.walmart.countries.repository.CountryListRepository
+import com.walmart.countries.repository.CountryListRepositoryImpl
+import kotlinx.coroutines.launch
+
+class CountryListViewModel(
+  private val repository: CountryListRepository = CountryListRepositoryImpl()
+) : ViewModel() {
+
+  private val _uiStatus = MutableLiveData<UIStatus>()
+  val uiStatus: LiveData<UIStatus> = _uiStatus
+
+  init {
+    getCountriesList()
+  }
+
+  private fun getCountriesList() {
+    _uiStatus.value = UIStatus.Loading
+
+    viewModelScope.launch {
+      when (val response: CountriesFetchResult = repository.getCountriesList()) {
+        is Success -> _uiStatus.value = UIStatus.Success(response.countries)
+        is EmptyResponse -> _uiStatus.value = UIStatus.SuccessNoResults
+        else -> _uiStatus.value = UIStatus.Error
+      }
+    }
+  }
+}
+
+sealed interface UIStatus {
+
+  data object Loading : UIStatus
+  data class Success(
+    val countries: List<Country>
+  ) : UIStatus
+
+  data object SuccessNoResults : UIStatus
+  data object Error : UIStatus
+}

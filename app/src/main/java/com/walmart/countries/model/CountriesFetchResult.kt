@@ -2,10 +2,11 @@ package com.walmart.countries.model
 
 sealed interface CountriesFetchResult {
   data class Success(
-    val response: CountriesResponse
+    val countries: List<Country>
   ) : CountriesFetchResult
 
-  // this section can be expanded to handle more errors gracefully
+  // TODO this section can be expanded to handle more errors gracefully or pass in the respective
+  // error strings to be displayed to the user
   interface Failure : CountriesFetchResult {
     data object Malformed : Failure
     data object IOException : Failure
@@ -15,5 +16,5 @@ sealed interface CountriesFetchResult {
     ) : Failure
   }
 
-  data object Empty : CountriesFetchResult
+  data object EmptyResponse : CountriesFetchResult
 }

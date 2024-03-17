@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/country_list_item_view_layout_height"
+    >
+
+  <TextView
+      android:id="@+id/country_list_item_view_country_name_and_region"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/country_list_item_view_country_name_margin_start"
+      android:layout_marginTop="@dimen/country_list_item_view_country_name_margin_top"
+      android:textColor="@android:color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="United States of America, NA"
+      />
+
+  <TextView
+      android:id="@+id/country_list_item_view_country_capital"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/country_list_item_view_country_capital_margin_start"
+      android:layout_marginTop="@dimen/country_list_item_view_country_capital_margin_top"
+      android:textColor="@android:color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/country_list_item_view_country_name_and_region"
+      tools:text="Washington, D.C."
+      />
+
+  <TextView
+      android:id="@+id/country_list_item_view_country_code"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/country_list_item_view_margin_end"
+      android:layout_marginTop="@dimen/country_list_item_view_country_code_margin_top"
+      android:textColor="@android:color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="US"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
