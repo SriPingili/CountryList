@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- country_list_item_view.xml -->
+    <dimen name="country_list_item_view_country_name_margin_start">128dp</dimen>
+    <dimen name="country_list_item_view_country_capital_margin_start">128dp</dimen>
+    <dimen name="country_list_item_view_margin_end">128dp</dimen>
+    <dimen name="country_list_item_view_layout_height">80dp</dimen>
+</resources>

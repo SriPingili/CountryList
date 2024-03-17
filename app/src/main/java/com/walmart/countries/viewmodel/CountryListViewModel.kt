@@ -1,6 +1,5 @@
 package com.walmart.countries.viewmodel
 
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,11 +19,12 @@ class CountryListViewModel(
   private val _uiStatus = MutableLiveData<UIStatus>()
   val uiStatus: LiveData<UIStatus> = _uiStatus
 
+  var scrollPosition: Int = 0
+
   init {
     getCountriesList()
   }
 
-  @VisibleForTesting
   internal fun getCountriesList() {
     _uiStatus.value = UIStatus.Loading
 

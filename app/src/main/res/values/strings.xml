@@ -3,4 +3,5 @@
   <string name="country_name_and_region">%1$s, %2$s</string>
   <string name="general_error_message">Something wrong happened, please try again</string>
   <string name="empty_response_error_message">No Country data found, please try again</string>
+  <string name="pull_down_to_refresh">Pull down to refresh</string>
 </resources>

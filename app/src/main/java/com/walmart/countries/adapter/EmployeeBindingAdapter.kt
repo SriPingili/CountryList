@@ -14,20 +14,22 @@ import com.walmart.countries.viewmodel.UIStatus.Success
  *
  * @param view - the [RecyclerView]
  * @param uiStatus - the [UIStatus], represents the state of the network call
+ * @param scrollPosition - the scrollTo position for the recycler view to handle the orientation changes
  */
-@BindingAdapter("uxRecyclerViewUiStatus")
+@BindingAdapter("uxRecyclerViewUiStatus", "uxRecyclerViewScrollPosition")
 fun setUpCountryListRecyclerView(
   view: RecyclerView,
   uiStatus: UIStatus,
+  scrollPosition: Int
 ) {
-  val uiStatusSuccess: Success = uiStatus as? Success ?: return
 
   view.apply {
+    visibility = if (uiStatus is Success) View.VISIBLE else View.GONE
     layoutManager = LinearLayoutManager(view.context)
     adapter = CountryListRecyclerViewAdapter().apply {
-      differ.submitList(uiStatusSuccess.countries)
+      differ.submitList((uiStatus as? Success)?.countries)
     }
-    visibility = View.VISIBLE
+    scrollToPosition(scrollPosition)
   }
 }
 
@@ -39,7 +41,7 @@ fun setUpCountryListRecyclerView(
  * @param uiStatus - the [UIStatus], represents the state of the network call
  */
 @BindingAdapter("uxTextViewUiStatus")
-fun setVisibilityTextView(
+fun setUpCountryListTextView(
   view: TextView,
   uiStatus: UIStatus,
 ) {

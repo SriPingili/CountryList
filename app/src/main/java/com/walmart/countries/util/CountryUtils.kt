@@ -8,6 +8,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 
 object CountryUtils {
   private const val BASE_URL = "https://gist.githubusercontent.com/"
+  internal const val SWIPE_TO_REFRESH_DELAY = 500L
 
   fun getCountryListApi(): CountryListApi {
     val client: OkHttpClient = OkHttpClient.Builder().build()
