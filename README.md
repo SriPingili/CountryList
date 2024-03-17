@@ -24,3 +24,7 @@ Note: I've observed that in certain cases, an empty string is returned from the 
 'capital' field. It appears that this empty string is deliberate, indicating that these countries
 lack a designated capital. To improve user experience, we could consider displaying informative
 text such as 'No capital exists' instead of an empty string.
+
+![tablet](https://github.com/SriPingili/CountryList/assets/16881321/b6f20548-a060-400b-86f9-944538edf092)
+
+
