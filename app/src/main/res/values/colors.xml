@@ -9,5 +9,4 @@
   <color name="black">#FF000000</color>
   <color name="white">#FFFFFFFF</color>
   <color name="shimmer_layout_background">#AFAFAF</color>
-  <color name="employee_list_item_view_grey_text_color">#616061</color>
 </resources>
