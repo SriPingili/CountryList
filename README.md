@@ -17,8 +17,10 @@
 
 - using the right the architecture for the app (MVVM)
 - handling the possible errors gracefully
+- handling orientation changes
 - testing (added test cases for view model)
 
-NOTE: I have noticed that for some of the countries an empty string is returned from the server for
-capital. Initially, I gave it a thought on handling this, however a quick google search revealed
-those countries do not have capital and an empty string is intentional, and hence leaving it as-is
+Note: I've observed that in certain cases, an empty string is returned from the server for the
+'capital' field. It appears that this empty string is deliberate, indicating that these countries
+lack a designated capital. To improve user experience, we could consider displaying informative
+text such as 'No capital exists' instead of an empty string.

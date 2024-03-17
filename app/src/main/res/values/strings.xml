@@ -1,7 +1,7 @@
 <resources>
   <string name="app_name">CountryList</string>
   <string name="country_name_and_region">%1$s, %2$s</string>
-  <string name="general_error_message">Something wrong happened, please try again</string>
-  <string name="empty_response_error_message">No Country data found, please try again</string>
+  <string name="general_error_message">Oops! Something went wrong. Please try again.</string>
+  <string name="empty_response_error_message">We apologize for the inconvenience, but it seems there is no data available for the countries at the moment. Please try again later.</string>
   <string name="pull_down_to_refresh">Pull down to refresh</string>
 </resources>
